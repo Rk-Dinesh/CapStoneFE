@@ -12,7 +12,7 @@ const [expenses, setExpenses] = useState([])
 const [error,setError] = useState(null)
 
 const addIncome = async(income) => {
-    const response = await axios.post(`${BASE_URL}add-income`, income)
+    const response = await axios.post(`${BASE_URL}/api/v1/add-income`, income)
         .catch((err) => {
             setError(err.response.data.message)
         })
@@ -20,13 +20,13 @@ const addIncome = async(income) => {
 }
 
 const getIncomes = async () =>{
-    const response = await axios.get(`${BASE_URL}get-incomes`)
+    const response = await axios.get(`${BASE_URL}/api/v1/get-incomes`)
     setIncomes(response.data)
     console.log(response.data)
 }
 
 const deleteIncome =async(id) => {
-    const res = await axios.delete(`${BASE_URL}delete-income/${id}`)
+    const res = await axios.delete(`${BASE_URL}/api/v1/delete-income/${id}`)
     getIncomes()
 }
 
@@ -39,7 +39,7 @@ const totalIncome =() => {
 }
 
 const addExpenses = async(expense) => {
-    const response = await axios.post(`${BASE_URL}add-expense`, expense)
+    const response = await axios.post(`${BASE_URL}/api/v1/add-expense`, expense)
         .catch((err) => {
             setError(err.response.data.message)
         })
@@ -47,13 +47,13 @@ const addExpenses = async(expense) => {
 }
 
 const getExpenses = async () =>{
-    const response = await axios.get(`${BASE_URL}get-expenses`)
+    const response = await axios.get(`${BASE_URL}/api/v1/get-expenses`)
     setExpenses(response.data)
     console.log(response.data)
 }
 
 const deleteExpenses =async(id) => {
-    const res = await axios.delete(`${BASE_URL}delete-expense/${id}`)
+    const res = await axios.delete(`${BASE_URL}/api/v1/delete-expense/${id}`)
     getExpenses()
 }
 
